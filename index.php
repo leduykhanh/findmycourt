@@ -13,6 +13,7 @@ session_start();
 <link rel="apple-touch-icon" sizes="72x72" href="vbx2.png" />
 <link rel="apple-touch-icon" sizes="114x114" href="vbx2.png" />
 <link rel="apple-touch-icon" sizes="144x144" href="vbx2.png" />
+<link rel="stylesheet" href="jquery-ui.css">
 <script type="text/javascript" src="jqueryx.min.js"></script>
 </head>
 <body>
@@ -104,7 +105,9 @@ LOG OUT
                         <div class="wellog">
 <img src="llk.png"/>
 </div>
-                        <input style="position:relative;    display: block;  top: 240px;margin: 0 auto; " type="text" name="" placeholder="enter an address">
+                        <div style="position:relative; display: block;  top: 240px; text-align: center;">
+                          <input style="margin: 0 auto;" id="search_box" type="text" name="" placeholder="enter an address">
+                        </div>
                         <button class="btnfmcfind" id="test" onclick="getLocation()">Search</button>
                         <div class="introscreen">
                         WELCOME TO FIND MY COURT.<br><br>
@@ -1092,6 +1095,38 @@ return false;
 
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDij_l_eJVZTNPl0__TL2kzjY3u4hI1r1k&callback=initMap">
-    </script>
+</script>
+<script src="jquery-ui.js"></script>
+  <script>
+  $( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#search_box" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
 </body>
 </html>
