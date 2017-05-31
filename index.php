@@ -300,7 +300,7 @@ function getLocation() {
             $.ajax({
             type: "POST",
             url: "fmc.php",
-            data: {lon: lon, lat: lat}, 
+            data: {lon: lon, lat: lat, search_box:$("#search_box").val()}, 
             cache: false,
             success: function(html){
                 $("#test").remove();  
@@ -420,7 +420,7 @@ var audio = document.getElementById("audio2");
               window.lon= position.coords.longitude;
              $('.btnfmcfind').first().css('display', 'block'); 
 
-        console.log(window.lat);
+        // console.log(window.lat);
        window.directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
        window.directionsService = new google.maps.DirectionsService;
      
@@ -1100,28 +1100,7 @@ return false;
   <script>
   $( function() {
     var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
+      "Mooroolbark College Courts","Rolling Hills Primary School ","New","Wingrove Court","Malcolm Court","Malcolm Court","Malcolm Court","Somewhere","Somewhere","Somewhere","Ddd","Wayne's Basketball","Terry's Hoops","Terry's Hoops","Location 5","Another New Location","Locastion","Barkly Street Park","Barkly Street Park","Barkly Street Park","Barkly Street Park","Surrey Park Box Hill","Campbellfield Heights Primary School","Carinza Avenue Reserve","Carinza Avenue Reserve","Purtell Place","Portell Place","Dallas Court","Corner Road Court","Adelaide BB","Adelaide BB","Adelaide BB","Adelaide BB","City Hoops","New Location","New Location 2","New Location 2","New Location 2","New Location 2","New Location 2","New Location 2","New Location 2","Another New Location","Another New Location","New Location 20","New Location","New Location","New Location","x","St. Kilda Beach Court","St. Kilda Beach Court","St. Kilda Beach Court","G1Courts","G1Courts","Deakin University","Nairobi","Thika","cjw"
     ];
     $( "#search_box" ).autocomplete({
       source: availableTags

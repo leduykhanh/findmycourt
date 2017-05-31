@@ -4,7 +4,12 @@
 
 $latitude1=$_POST['lat'];
 $longitude1=$_POST['lon'];
+global $search_box;
 
+function filter_name($a){
+	$search_box = $_POST['search_box'];
+	return $a["Name"] == $search_box;
+}
   /* We calculate the distance with function below. Here two points (coordinates) are required*/
 
 function getDistanceBetweenPointsNew($latitude1, $longitude1, $latitude2, $longitude2, $unit = 'Km') {
@@ -124,6 +129,14 @@ $results = json_decode($results, true);
 
 $wezc=array();
 $stringin="";
+$search_box = $_POST['search_box'];
+if($search_box){
+	$results = array_filter($results, "filter_name");
+}
+// $myfile = fopen("addrr.txt", "w") or die("Unable to open file!");
+
+
+
 
      /* The courts are order from nearest to furtherst*/
 
@@ -132,7 +145,8 @@ $stringin="";
 
                         $latitude2=$names['Latitude'];
                         $longitude2=$names['Longitude'];
-
+                        // $txt = "\"" .$names["Name"] . "\"," ;
+                        // fwrite($myfile, $txt);
 
 $stringin=$stringin."{\"cname\":\"".$names['Name']."\",\"lat\":\"".$names['Latitude']."\",\"lon\":\"".$names['Longitude']."\"},";
 
@@ -158,7 +172,7 @@ $stringin=$stringin."{\"cname\":\"".$names['Name']."\",\"lat\":\"".$names['Latit
                                   return strcmp($a['dist'], $b['dist']);
                               });
                                      
-
+// fclose($myfile);
  foreach($wezc as $names2){
 
 $rt=$names2['id'];
